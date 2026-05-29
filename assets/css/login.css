@@ -1,0 +1,494 @@
+/* ============================================
+   LOGIN PAGE - ESTILOS ESPECÍFICOS
+   SIGEVEM - Ecatepec
+   ============================================ */
+
+/* Variables específicas del login */
+:root {
+    --login-bg-primary: #691C32;
+    --login-bg-secondary: #BC955C;
+    --login-text-light: rgba(255, 255, 255, 0.9);
+}
+
+/* Reset específico para login */
+.login-page {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   HEADER FIJO CON LOGO LARGO
+   ============================================ */
+.login-header {
+    background: linear-gradient(135deg, var(--login-bg-primary) 0%, var(--primary-dark) 100%);
+    padding: var(--spacing-md) var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    
+    /* 👈 POSICIÓN FIJA CORREGIDA */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.login-header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo-largo {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+.login-container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    
+    /* 👈 ESPACIO PARA EL HEADER FIJO */
+    padding-top: calc(90px + var(--spacing-xl));
+}
+
+/* Fondo con imagen */
+.login-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.50;  /* Imagen suave */
+    filter: saturate(0.8);
+}
+
+.bg-overlay {
+    /* 👈 POSICIÓN ABSOLUTA CORREGIDA */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    /* Overlay blanco suave */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0.3) 100%);
+    
+    /*backdrop-filter: blur(3px);*/
+}
+
+/* ============================================
+   CARD DE LOGIN
+   ============================================ */
+.login-card {
+    background: var(--bg-white);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-xl);
+    width: 100%;
+    max-width: 480px;
+    padding: var(--spacing-2xl);
+    position: relative;
+    z-index: 1;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   LOGO CORTO CENTRADO EN EL FORMULARIO
+   ============================================ */
+.login-card-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.logo-corto-container {
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+}
+
+.logo-corto {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+.login-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--login-bg-primary);
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+.login-subtitle {
+    font-size: 14px;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* ============================================
+   FORMULARIO
+   ============================================ */
+.login-form {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gray-700);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-500);
+    z-index: 1;
+}
+
+.form-control {
+    padding-left: calc(var(--spacing-md) + 24px);
+    height: 48px;
+    font-size: 14px;
+}
+
+.form-control:focus {
+    border-color: var(--login-bg-primary);
+    box-shadow: 0 0 0 3px rgba(105, 28, 50, 0.1);
+}
+
+/* Toggle password */
+.toggle-password {
+    position: absolute;
+    right: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--gray-500);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    transition: color var(--transition-fast);
+}
+
+.toggle-password:hover {
+    color: var(--login-bg-primary);
+}
+
+/* Checkbox y link */
+.form-row-inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-dark);
+    user-select: none;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--login-bg-primary);
+}
+
+.link-forgot {
+    color: var(--login-bg-secondary);
+    font-size: 13px;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+
+.link-forgot:hover {
+    color: var(--login-bg-primary);
+    text-decoration: underline;
+}
+
+/* Select de rol */
+.select-rol {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23691C32' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+}
+
+/* Info box */
+.info-box {
+    background: linear-gradient(135deg, #FFF9E6 0%, #FFF3CD 100%);
+    border-left: 4px solid var(--login-bg-secondary);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+}
+
+.info-box i {
+    color: var(--login-bg-secondary);
+    font-size: 20px;
+    margin-top: 2px;
+}
+
+.info-box p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--gray-800);
+    line-height: 1.5;
+}
+
+/* Alertas */
+.alert {
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.alert-danger {
+    background: var(--danger-light);
+    color: var(--danger-dark);
+    border-left: 4px solid var(--danger);
+}
+
+.alert-danger i {
+    font-size: 20px;
+}
+
+/* Botón de login */
+.btn-login {
+    width: 100%;
+    height: 52px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--login-bg-primary);
+    border: 2px solid var(--login-bg-primary);
+    color: var(--text-white);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.btn-login:hover {
+    background: var(--login-bg-secondary);
+    border-color: var(--login-bg-secondary);
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   TARJETAS DE ROLES (DEMO)
+   ============================================ */
+.roles-demo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.role-card {
+    background: var(--gray-100);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.role-card:hover {
+    background: var(--gray-200);
+    transform: translateY(-2px);
+}
+
+.role-card.active {
+    background: rgba(105, 28, 50, 0.1);
+    border-color: var(--login-bg-primary);
+}
+
+.role-card h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--login-bg-primary);
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.role-card p {
+    font-size: 11px;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.login-footer {
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--text-white);
+    margin-top: auto;
+}
+
+.login-footer p {
+    margin: var(--spacing-xs) 0;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.footer-small {
+    font-size: 11px !important;
+    opacity: 0.7 !important;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .login-header {
+        padding: var(--spacing-sm);
+    }
+    
+    .logo-largo {
+        height: 40px;
+    }
+    
+    .login-container {
+        padding: var(--spacing-md);
+        padding-top: calc(80px + var(--spacing-md));
+    }
+    
+    .login-card {
+        padding: var(--spacing-lg);
+        max-width: 100%;
+    }
+    
+    .login-title {
+        font-size: 24px;
+    }
+    
+    .logo-corto {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .roles-demo {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row-inline {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .btn-login {
+        height: 56px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: var(--spacing-md);
+    }
+    
+    .login-title {
+        font-size: 22px;
+    }
+    
+    .form-control {
+        height: 44px;
+    }
+}
+
+/* ============================================
+   UTILIDADES ADICIONALES
+   ============================================ */
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: var(--spacing-md);
+}
+
+.mb-2 {
+    margin-bottom: var(--spacing-md);
+}

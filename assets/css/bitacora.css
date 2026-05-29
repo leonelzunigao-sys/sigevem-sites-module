@@ -1,0 +1,590 @@
+/* ============================================
+   BITÁCORA - ESTILOS ESPECÍFICOS
+   SIGEVEM - Ecatepec
+   ============================================ */
+
+/* ============================================
+   PAGE HEADER
+   ============================================ */
+.bitacora-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.bitacora-title h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 4px 0;
+}
+
+.bitacora-title p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.btn-export {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-export:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* ============================================
+   LEYENDA DE COLORES
+   ============================================ */
+.bitacora-leyenda {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.leyenda-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: var(--text-dark);
+}
+
+.leyenda-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.leyenda-dot.creacion  { background: #28a745; }
+.leyenda-dot.modificacion { background: #fd7e14; }
+.leyenda-dot.eliminacion  { background: #dc3545; }
+.leyenda-dot.acceso    { background: #17a2b8; }
+
+/* ============================================
+   FILTROS
+   ============================================ */
+.bitacora-filtros {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+}
+
+.filtros-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filtro-search {
+    flex: 1;
+    min-width: 220px;
+    position: relative;
+}
+
+.filtro-search i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.filtro-search input {
+    width: 100%;
+    padding: 9px 12px 9px 36px;
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--text-dark);
+    background: var(--bg-light);
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.filtro-search input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: white;
+}
+
+.filtro-select {
+    padding: 9px 32px 9px 12px;
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--text-dark);
+    background: var(--bg-light);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: border-color 0.2s;
+    min-width: 150px;
+}
+
+.filtro-select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.filtro-fecha {
+    padding: 9px 12px;
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--text-dark);
+    background: var(--bg-light);
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.filtro-fecha:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.filtros-segunda-fila {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-dark);
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+.btn-limpiar {
+    padding: 9px 16px;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-limpiar:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* ============================================
+   TABLA DE BITÁCORA
+   ============================================ */
+.bitacora-tabla-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    overflow: hidden;
+}
+
+.tabla-info {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--gray-200);
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tabla-info strong {
+    color: var(--text-dark);
+}
+
+.bitacora-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.bitacora-tabla thead th {
+    padding: 11px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--text-muted);
+    background: var(--bg-light);
+    border-bottom: 2px solid var(--gray-200);
+    white-space: nowrap;
+}
+
+.bitacora-tabla tbody tr {
+    border-bottom: 1px solid var(--gray-100);
+    transition: background 0.15s;
+}
+
+.bitacora-tabla tbody tr:last-child {
+    border-bottom: none;
+}
+
+.bitacora-tabla tbody tr:hover {
+    background: #f8f9ff;
+    cursor: pointer;
+}
+
+.bitacora-tabla tbody td {
+    padding: 12px 16px;
+    color: var(--text-dark);
+    vertical-align: middle;
+}
+
+.td-fecha {
+    white-space: nowrap;
+    color: var(--text-muted) !important;
+    font-size: 12px !important;
+}
+
+.td-usuario {
+    font-weight: 600;
+}
+
+.td-rol span {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    border: 1px solid var(--gray-200);
+}
+
+.td-descripcion {
+    max-width: 280px;
+    color: var(--text-muted) !important;
+    font-size: 12px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ============================================
+   BADGES DE ACCIÓN
+   ============================================ */
+.badge-accion {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Creación / Aprobación */
+.badge-registrar,
+.badge-crear,
+.badge-aprobar,
+.badge-completar,
+.badge-validar {
+    background: #d4edda;
+    color: #155724;
+}
+
+/* Modificación */
+.badge-editar,
+.badge-programar,
+.badge-cambiar,
+.badge-exportar {
+    background: #ffe5cc;
+    color: #7d3c00;
+}
+
+/* Eliminación / Rechazo */
+.badge-eliminar,
+.badge-rechazar,
+.badge-cancelar {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Acceso */
+.badge-login,
+.badge-logout {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Default */
+.badge-default {
+    background: var(--bg-light);
+    color: var(--text-dark);
+    border: 1px solid var(--gray-200);
+}
+
+/* ============================================
+   ESTADO VACÍO
+   ============================================ */
+.tabla-vacia {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+}
+
+.tabla-vacia i {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.3;
+    display: block;
+}
+
+.tabla-vacia p {
+    font-size: 15px;
+    margin: 0;
+}
+
+/* ============================================
+   PAGINACIÓN
+   ============================================ */
+.bitacora-paginacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-top: 1px solid var(--gray-200);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.paginacion-info {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.paginacion-botones {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.paginacion-botones a,
+.paginacion-botones span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid var(--gray-200);
+    color: var(--text-dark);
+    background: white;
+}
+
+.paginacion-botones a:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.paginacion-botones span.activa {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.paginacion-botones span.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ============================================
+   MODAL DE DETALLE
+   ============================================ */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-box {
+    background: white;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    overflow: hidden;
+    animation: modalIn 0.2s ease;
+}
+
+@keyframes modalIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+}
+
+.modal-header {
+    background: var(--primary);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-close {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.modal-close:hover {
+    background: rgba(255,255,255,0.35);
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--gray-100);
+    align-items: flex-start;
+}
+
+.modal-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.modal-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    min-width: 110px;
+    padding-top: 2px;
+}
+
+.modal-value {
+    font-size: 13px;
+    color: var(--text-dark);
+    flex: 1;
+    font-weight: 500;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+    .bitacora-tabla thead th:nth-child(3),
+    .bitacora-tabla tbody td:nth-child(3) {
+        display: none; /* oculta columna Rol */
+    }
+}
+
+@media (max-width: 768px) {
+    .bitacora-header {
+        flex-direction: column;
+    }
+
+    .filtros-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filtro-search,
+    .filtro-select,
+    .filtro-fecha {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .bitacora-tabla thead th:nth-child(4),
+    .bitacora-tabla tbody td:nth-child(4) {
+        display: none; /* oculta columna Módulo */
+    }
+
+    .bitacora-paginacion {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal-box {
+        margin: 16px;
+    }
+}
