@@ -1,0 +1,23 @@
+# Configuración sensible
+config/database.php
+
+# Archivos subidos por usuarios
+assets/uploads/
+
+# Archivos de logs
+*.log
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de entorno
+.env
+
+# Dependencias
+vendor/
+node_modules/
+
+# Archivos temporales
+*.tmp
+*.temp

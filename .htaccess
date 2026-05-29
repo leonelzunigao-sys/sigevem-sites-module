@@ -1,0 +1,30 @@
+# ============================================
+# SIGEVEM - Apache Configuration
+# ============================================
+
+# Evitar listado de directorios
+Options -Indexes
+
+# Proteger archivos sensibles
+<FilesMatch "(database\.php|session\.php|\.env|\.gitignore)">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Evitar acceso directo a carpeta config
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^config/ - [F,L]
+</IfModule>
+
+# Charset UTF-8
+AddDefaultCharset UTF-8
+
+# Tiempo de caché para assets estáticos
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+</IfModule>
