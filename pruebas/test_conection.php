@@ -5,7 +5,7 @@ $host = 'localhost';
 $port = '5432';
 $dbname = 'sigevem_db';
 $user = 'postgres';  // ← Cambia si tu usuario es diferente
-$pass = 'AdminSigevem2026!';  // ← Tu password de PostgreSQL
+$pass = 'password';  // ← Tu password de PostgreSQL
 
 $dsn = sprintf('pgsql:host=%s;port=%s;dbname=%s', $host, $port, $dbname);
 
